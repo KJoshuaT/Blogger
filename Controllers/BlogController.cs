@@ -54,15 +54,17 @@ namespace Blogger.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,PublishedDate")] Blog blog, IFormFile? ImagePath)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content")] Blog blog, IFormFile? ImagePath)
         {
             if (ImagePath != null)
             {
                 // Generate a unique file name to avoid overwriting
                 var fileName = Path.GetFileNameWithoutExtension(ImagePath.FileName);
                 var extension = Path.GetExtension(ImagePath.FileName);
+                //Use DateTime to create unique files and prevent overwriting similar files.
                 var uniqueFileName = $"{fileName}_{DateTime.Now.Ticks}{extension}";
         
+                //Store into server for display
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", uniqueFileName);
         
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -70,10 +72,12 @@ namespace Blogger.Controllers
                     await ImagePath.CopyToAsync(stream);
                 }
 
-                // Store the file
+                // Store the file into database
                 blog.ImagePath = $"/images/{uniqueFileName}";
             }
 
+            blog.PublishedDate = DateTime.Now;
+            
             if (ModelState.IsValid)
             {
                 _context.Add(blog);
