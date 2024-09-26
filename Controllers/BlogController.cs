@@ -172,6 +172,15 @@ namespace Blogger.Controllers
             var blog = await _context.Blog.FindAsync(id);
             if (blog != null)
             {
+                if (!string.IsNullOrEmpty(blog.ImagePath))
+                {
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", blog.ImagePath.TrimStart('/'));
+                    
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+                }
                 _context.Blog.Remove(blog);
             }
 
