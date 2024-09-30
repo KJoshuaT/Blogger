@@ -13,8 +13,16 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/joshuatakahashi/Blogger/wwwroot/images/IMG_1487_638632261517616190.jpeg",
+      "PackagePath": "staticwebassets/images/IMG_1487_638632261517616190.jpeg"
+    },
+    {
       "Id": "/Users/joshuatakahashi/Blogger/wwwroot/images/garden_638630649493676750.jpg",
       "PackagePath": "staticwebassets/images/garden_638630649493676750.jpg"
+    },
+    {
+      "Id": "/Users/joshuatakahashi/Blogger/wwwroot/images/lp_image_638632262991465370.jpeg",
+      "PackagePath": "staticwebassets/images/lp_image_638632262991465370.jpeg"
     },
     {
       "Id": "/Users/joshuatakahashi/Blogger/wwwroot/js/site.js",
