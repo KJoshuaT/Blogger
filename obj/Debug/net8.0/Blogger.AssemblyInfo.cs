@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Blogger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56bb8e6b8c0eb3d00f98fe926a7ee95b5407cd24")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+946e10e84713b527caa78b84214aa06fc2460e2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Blogger")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Blogger")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

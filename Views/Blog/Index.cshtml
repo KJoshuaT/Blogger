@@ -19,11 +19,12 @@
                 
                     @if (!string.IsNullOrEmpty(item.ImagePath))
                     {
-                        <img src="@item.ImagePath" alt="Blog Image" class="img-fluid mb-3 landscape-image" />
+                        <img src="@item.ImagePath" alt="Blog Image" class="img-fluid mb-3 landscape-image"
+                             style="width: 100%; height: 200px; object-fit: cover;"/>
                     }
                     <p class="text-muted">@item.PublishedDate.ToString("MM.dd.yyyy")</p>
-                    <h2>@item.Title</h2>
-                    <p>@item.Content</p>
+                    <h2 style=" text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 100%;" >@item.Title</h2>
+                    <p style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 80%;">@item.Content</p>
                 </a>
             </div>
         }
@@ -37,6 +38,9 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            width: 400px;
+            height: 330px;
+            overflow: hidden;
         }
         .landscape-image {
             width: 100%;
@@ -54,21 +58,18 @@
         
         .blog-post:hover {
             background-color: #f9f9f9;
+            
         }
         
         .clickable-blog {
-            text-decoration: none; /* Remove underline */
-            color: inherit; /* Keep the text color as is */
+            text-decoration: none; 
+            color: inherit; 
         }
 
         .clickable-blog:hover {
-            color: inherit; /* Prevent changing color on hover */
-            cursor: pointer; /* Show a pointer to indicate it's clickable */
+            color: inherit; 
+            cursor: pointer;
         }
-
-        .blog-title, .blog-date, .blog-content {
-            margin: 0; /* Adjust as needed */
-            text-align: center; /* Center the text */
-        }
+            
     </style>
 }
