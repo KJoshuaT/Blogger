@@ -2,7 +2,65 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header with image -->
+<header class="w3-display-container w3-grayscale-min" id="home">
+    <img src="/staticimages/cafeOutdoor.gif" alt="Uploaded Image" style="max-height: 600px; width: 100%; object-fit: cover;" />
+    <div class="w3-display-middle w3-center">
+        <span class="w3-text-white" style="font-size:90px">ChitTalk <i class="fa-solid fa-mug-hot"></i></span>
+    </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+    <!-- About Container -->
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT CHITTALK</span></h5>
+            <p>ChitTalk is a simple and intuitive blog application designed to help me familiarize myself with ASP.NET and its development stack. The platform allows users to share their thoughts, stories, and experiences through engaging blog posts, with an intuitive interface for creating, editing, and deleting content. ChitTalk supports image uploads, enabling users to enhance their posts with visuals, while offering a seamless file management experience.</p>
+            <p>Built with ASP.NET Core, the project incorporates Razor Pages for the front-end and Entity Framework Core for database management, ensuring smooth data handling and scalability. ChitTalk is not only a functional blogging platform but also a personal learning project aimed at mastering ASP.NET Core, its tools, and concepts.</p>
+            <img src="/staticimages/cozyRoom.gif" style="width:100%;max-width:1000px" class="w3-margin-top">
+        </div>
+    </div>
+
+    <!-- Contact/Area Container -->
+    <div class="w3-container" id="where" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND ME!</span></h5>
+            <p>Hi! I'm Josh, you can reach me through these:</p>
+            <p>Phone: 201-932-3253 </p>
+            <p>Email: kjosh.takahashi@gmail.com</p>
+            <a href="https://www.linkedin.com/in/kjt02/" target="_blank" style="margin-right: 20px;">
+                <i class="fa-brands fa-linkedin fa-2xl"></i> 
+            </a> 
+            
+            <a href="https://github.com/KJoshuaT" target="_blank">
+                <i class="fa-brands fa-github fa-2xl"></i>
+            </a>
+            <img src="/staticimages/panda.jpeg" class="w3-image" style="width:100%; height: 600px; object-fit: cover; margin-top: 15px;">
+            <p>my dog says hello</p>
+        </div>
+    </div>
+
+    <!-- End page content -->
 </div>
+
+</body>
+</html>

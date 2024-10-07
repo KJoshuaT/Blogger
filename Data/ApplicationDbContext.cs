@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Blogger.Models;
+using ChitTalk.Models;
 
-namespace Blogger.Data;
+namespace ChitTalk.Data;
 
 public class ApplicationDbContext : IdentityDbContext
 {
@@ -11,5 +11,5 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-public DbSet<Blogger.Models.Blog> Blog { get; set; } = default!;
+public DbSet<Blog> Blog { get; set; } = default!;
 }

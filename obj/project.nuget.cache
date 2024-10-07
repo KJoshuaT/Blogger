@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Vpn6I3pLlTc=",
+  "dgSpecHash": "oOOa3RXDVNw=",
   "success": true,
-  "projectFilePath": "/Users/joshuatakahashi/Blogger/Blogger.csproj",
+  "projectFilePath": "/Users/joshuatakahashi/ChitTalk/ChitTalk.csproj",
   "expectedPackageFiles": [
     "/Users/joshuatakahashi/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/joshuatakahashi/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",

@@ -1,4 +1,4 @@
-namespace Blogger.Models;
+namespace ChitTalk.Models;
 
 public class ErrorViewModel
 {

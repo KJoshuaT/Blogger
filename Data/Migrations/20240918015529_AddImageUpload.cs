@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Blogger.Data.Migrations
+namespace ChitTalk.Data.Migrations
 {
     /// <inheritdoc />
     public partial class AddImageUpload : Migration

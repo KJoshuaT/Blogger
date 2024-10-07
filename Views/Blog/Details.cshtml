@@ -1,4 +1,4 @@
-@model Blogger.Models.Blog
+@model ChitTalk.Models.Blog
 
 @{
     ViewData["Title"] = "Details";
@@ -6,34 +6,40 @@
 
 <div class="container">
     <div class="blog-post">
-        <h1 class="text-center mt-4" style="font-family: 'Arial', sans-serif;">@Model.Title</h1>
-        
-        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        @if (Model == null)
         {
-            <div class="text-center my-4">
-                <img src="@Model.ImagePath" alt="Blog Image" class="img-fluid" 1    
-                     style=" object-fit: cover; width: 2560px; height: 800px;">
+            <p>Blog not found.</p>
+        }
+        else
+        {
+            <h1 class="text-center mt-4" style="font-family: 'Arial', sans-serif;">@Model.Title</h1>
+        
+            @if (!string.IsNullOrEmpty(Model.ImagePath))
+            {
+                <div class="text-center my-4">
+                    <img src="@Model.ImagePath" alt="Blog Image" class="img-fluid"
+                         style="object-fit: cover; width: 2560px; height: 800px;">
+                </div>
+            }
+        
+            <p class="text-muted">
+                @Model.PublishedDate.ToString("MM.dd.yyyy")
+            </p>
+
+            <div class="blog-content mt-4"
+                 style="margin: 0 auto; width: 60%; display: flex; justify-content: center;">
+                <div style="width: 100%; text-align: left; padding: 20px;">
+                    <p style="font-family: 'Times New Roman', serif; font-size: 19px;">@Model.Content</p>
+                </div>
+            </div>
+        
+            <div class="text-center mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary btn-sm mx-2">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary btn-sm mx-2">Back to List</a>
+                <form asp-action="Delete" asp-route-id="@Model.Id" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm mx-2">Delete</button>
+                </form>
             </div>
         }
-        
-        <p class="text-muted">
-            @Model.PublishedDate.ToString("MM.dd.yyyy")
-        </p>
-
-        <div class="blog-content mt-4"
-             style="margin: 0 auto; width: 60%; display: flex; justify-content: center;">
-            <div style="width: 100%; text-align: left; padding: 20px;">
-                <p style="font-family: 'Times New Roman', serif; font-size: 19px;">@Model.Content</p>
-                
-            </div>
-        </div>
-        
-        <div class="text-center mt-4">
-            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary btn-sm mx-2">Edit</a>
-            <a asp-action="Index" class="btn btn-secondary btn-sm mx-2">Back to List</a>
-            <form asp-action="Delete" asp-route-id="@Model.Id" method="post" style="display:inline;">
-                <button type="submit" class="btn btn-danger btn-sm mx-2">Delete</button>
-            </form>
-        </div>
     </div>
 </div>

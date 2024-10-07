@@ -1,45 +1,49 @@
-@model Blogger.Models.Blog
+    @model ChitTalk.Models.Blog
 
-@{
-    ViewData["Title"] = "Create";
-}
+    @{
+        ViewData["Title"] = "Create";
+    }
 
-<h1>Create</h1>
+    <h1>Create your ChitTalk!</h1>
 
-<hr />
-<div class="row">
-    <div class="col-md-4 mx-auto">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group mb-4">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-4">
-                <label asp-for="Content" class="control-label"></label>
-                <textarea asp-for="Content" class="form-control" rows="10" cols="50"></textarea>
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-4">
-                <i class="fa fa-paperclip"></i>
-                <input asp-for="ImagePath" type="file" name="ImagePath" class="form-control" accept="image/*" />
-                <span asp-validation-for="ImagePath" class="text-danger"></span>
-            </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-4">
+                    <input asp-for="Title" placeholder="Your Title!" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <textarea asp-for="Content" placeholder="What's up?" class="form-control" rows="10" cols="50"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <i class="fa-solid fa-image fa-2xl"></i>
+                    <input asp-for="ImagePath" type="file" name="ImagePath" class="custom-file-input" id="customFile" accept="image/*" />
+                    <span asp-validation-for="ImagePath" class="text-danger"></span>
+                </div>
 
 
-            <div class="d-flex justify-content-between mb-3">
-                <a asp-action="Index" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i> Back to List
-                </a>
+                <div class="d-flex justify-content-between mb-3">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </a>
 
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                    <input type="submit" value="Post" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <style>
+        .custom-file-input:lang(en) ~ .custom-file-label::after {
+            content: "Browse"; /* Change text of the button */
+        }
+    </style>
+    
+    @section Scripts {
+        
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

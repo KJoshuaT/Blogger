@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Blogger.Data;
-using Blogger.Models;
+using ChitTalk.Data;
+using ChitTalk.Models;
 
-namespace Blogger.Controllers
+namespace ChitTalk.Controllers
 {
     public class BlogController : Controller
     {
@@ -87,15 +87,8 @@ namespace Blogger.Controllers
 
             return View(blog);
         }
-
-
-
-
-
-
-
-
         // GET: Blog/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -116,12 +109,49 @@ namespace Blogger.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,PublishedDate")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,PublishedDate")] Blog blog, IFormFile? ImagePath)
         {
             if (id != blog.Id)
             {
                 return NotFound();
             }
+
+            var existingBlog = await _context.Blog.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
+            if (existingBlog == null)
+            {
+                return NotFound();
+            }
+
+            if (ImagePath != null)
+            {
+                if (!string.IsNullOrEmpty(existingBlog.ImagePath))
+                {
+                    var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", existingBlog.ImagePath.TrimStart('/'));
+                    if (System.IO.File.Exists(oldFilePath))
+                    {
+                        System.IO.File.Delete(oldFilePath);
+                    }
+                }
+
+                var fileName = Path.GetFileNameWithoutExtension(ImagePath.FileName);
+                var extension = Path.GetExtension(ImagePath.FileName);
+                var uniqueFileName = $"{fileName}_{DateTime.Now.Ticks}{extension}";
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", uniqueFileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ImagePath.CopyToAsync(stream);
+                }
+
+                blog.ImagePath = $"/images/{uniqueFileName}";
+            }
+            else
+            {
+                //If no new image is uploaded, keep the existing image path
+                blog.ImagePath = existingBlog.ImagePath;
+            }
+
+            blog.PublishedDate = DateTime.Now;
 
             if (ModelState.IsValid)
             {

@@ -1,14 +1,13 @@
-@model IEnumerable<Blogger.Models.Blog>
+@model IEnumerable<ChitTalk.Models.Blog> 
 
 @{
     ViewData["Title"] = "Index";
 }
+<div class="d-flex justify-content-between">
+        <h1>ChitTalk <i class="fa-solid fa-mug-hot"></i></h1>   
+    <a asp-action="Create" class="mt-3 mb-4"><i class="fa-solid fa-circle-plus fa-2xl hover-beat"></i></a>
+</div>
 
-<h1>Blogger <i class="fa-solid fa-mug-hot"></i></h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary mb-4">Create New</a>
-</p>
 
 <div class="container">
     <div class="row">
@@ -69,6 +68,10 @@
         .clickable-blog:hover {
             color: inherit; 
             cursor: pointer;
+        }
+
+        .hover-beat:hover {
+            animation: fa-beat 1s infinite;
         }
             
     </style>

@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Blogger.Models;
+using ChitTalk.Models;
 
-namespace Blogger.Controllers;
+namespace ChitTalk.Controllers;
 
 public class HomeController : Controller
 {

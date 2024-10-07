@@ -1,4 +1,4 @@
-@model Blogger.Models.Blog
+@model ChitTalk.Models.Blog
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,37 +6,47 @@
 
 <h1>Edit</h1>
 
-<h4>Blog</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-4 mx-auto">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+            @if (!string.IsNullOrEmpty(Model.ImagePath))
+            {
+            <div class="form-group mb-4">
+                    <div class="mb-2">
+                    <img src="@Model.ImagePath" alt="Uploaded Image" class="img-fluid" style="max-height: 200px; width: 100%; object-fit: cover;" />
+                </div>
+            </div>
+            }
+
+
+            <div class="form-group mb-4">
+                <input asp-for="Title" placeholder="Your Title!" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
+            
+            <div class="form-group mb-4">
+                <textarea asp-for="Content" placeholder="What's up?" class="form-control" rows="10" cols="50"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PublishedDate" class="control-label"></label>
-                <input asp-for="PublishedDate" class="form-control" />
-                <span asp-validation-for="PublishedDate" class="text-danger"></span>
+
+            <div class="form-group mb-4">
+                <i class="fa-solid fa-image fa-2xl"></i>
+                <input asp-for="ImagePath" type="file" name="ImagePath" class="custom-file-input" id="customFile" accept="image/*" />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <div class="d-flex justify-content-between mb-3">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+
+                <input type="submit" value="Post" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

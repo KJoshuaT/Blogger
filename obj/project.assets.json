@@ -8485,11 +8485,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/joshuatakahashi/Blogger/Blogger.csproj",
-      "projectName": "Blogger",
-      "projectPath": "/Users/joshuatakahashi/Blogger/Blogger.csproj",
+      "projectUniqueName": "/Users/joshuatakahashi/ChitTalk/ChitTalk.csproj",
+      "projectName": "ChitTalk",
+      "projectPath": "/Users/joshuatakahashi/ChitTalk/ChitTalk.csproj",
       "packagesPath": "/Users/joshuatakahashi/.nuget/packages/",
-      "outputPath": "/Users/joshuatakahashi/Blogger/obj/",
+      "outputPath": "/Users/joshuatakahashi/ChitTalk/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/joshuatakahashi/.nuget/NuGet/NuGet.Config"
