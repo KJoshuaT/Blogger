@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RvAhNE2PxsgMIjLfdRgAR5pXylZIFawls+rpbmI59Ig=",
+  "Hash": "ZVGZz/+7r+elx4+Um7f9if1wGspVwegru9cRPOhXAS0=",
   "Source": "ChitTalk",
   "BasePath": "_content/ChitTalk",
   "Mode": "Default",
@@ -1250,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/1663260866161_638633100639160080.jpg"
+    },
+    {
+      "Identity": "/Users/joshuatakahashi/ChitTalk/wwwroot/images/cozyRoom_638638459924829500.gif",
+      "SourceId": "ChitTalk",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/joshuatakahashi/ChitTalk/wwwroot/",
+      "BasePath": "_content/ChitTalk",
+      "RelativePath": "images/cozyRoom_638638459924829500.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/cozyRoom_638638459924829500.gif"
     },
     {
       "Identity": "/Users/joshuatakahashi/ChitTalk/wwwroot/images/garden_638633185444613350.jpg",

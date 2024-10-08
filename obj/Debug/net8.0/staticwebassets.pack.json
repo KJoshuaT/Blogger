@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets/images/Person1_638633100510903460.jpeg"
     },
     {
+      "Id": "/Users/joshuatakahashi/ChitTalk/wwwroot/images/cozyRoom_638638459924829500.gif",
+      "PackagePath": "staticwebassets/images/cozyRoom_638638459924829500.gif"
+    },
+    {
       "Id": "/Users/joshuatakahashi/ChitTalk/wwwroot/images/garden_638633185444613350.jpg",
       "PackagePath": "staticwebassets/images/garden_638633185444613350.jpg"
     },
