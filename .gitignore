@@ -1,0 +1,28 @@
+# Ignore user-uploaded content
+wwwroot/images/*
+
+# Ignore build output
+bin/
+obj/
+
+# Ignore database files 
+*.db
+*.sqlite
+
+# Ignore user-specific files and settings
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore env's
+.env
+appsettings.*.json
+
+# Ignore logs and temp files
+*.log
+*.tmp
+
+node_modules/
