@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ChitTalk.Data;
 using ChitTalk.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChitTalk.Controllers
 {
@@ -44,6 +45,7 @@ namespace ChitTalk.Controllers
         }
 
         // GET: Blog/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -52,6 +54,7 @@ namespace ChitTalk.Controllers
         // POST: Blog/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Content")] Blog blog, IFormFile? ImagePath)
@@ -88,6 +91,7 @@ namespace ChitTalk.Controllers
             return View(blog);
         }
         // GET: Blog/Edit/5
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -107,6 +111,7 @@ namespace ChitTalk.Controllers
         // POST: Blog/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,PublishedDate")] Blog blog, IFormFile? ImagePath)
@@ -177,6 +182,7 @@ namespace ChitTalk.Controllers
         }
 
         // GET: Blog/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -195,6 +201,7 @@ namespace ChitTalk.Controllers
         }
 
         // POST: Blog/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
