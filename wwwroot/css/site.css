@@ -32,7 +32,18 @@ html, body {
   align-items: center; 
   justify-content: center; 
   height: 100vh;
-  background-image: url('/staticimages/hangout.jpg'); 
+  background-image: url('/staticimages/LoginImage.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  padding: 0 20px; 
+}
+
+.registration-container {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh;
+  background-image: url('/staticimages/RegisterImage.jpg'); 
   background-size: cover; 
   background-position: center; 
   padding: 0 20px; 
