@@ -43,3 +43,12 @@
         }
     </div>
 </div>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        window.onload = function() {
+            alert('@TempData["ErrorMessage"]');
+        };
+    </script>
+}

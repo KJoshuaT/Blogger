@@ -13,5 +13,6 @@ namespace ChitTalk.Models
         public string? ImagePath { get; set; }
 
         public DateTime PublishedDate { get; set; } 
+        public string? CreatedByUserId { get; set; }
     }
 }
