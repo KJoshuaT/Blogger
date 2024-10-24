@@ -132,21 +132,40 @@ namespace ChitTalk.Controllers
                 return NotFound();
             }
 
-            // Check if the logged-in user is the owner of the post
             var existingBlog = await _context.Blog.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
             if (existingBlog == null)
             {
                 return NotFound();
             }
 
-            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);  // Get current user's ID
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (existingBlog.CreatedByUserId != currentUserId)
             {
                 TempData["ErrorMessage"] = "Access denied.";
                 return RedirectToAction("Details", new { id = blog.Id });
             }
 
-            // Image handling logic (unchanged)
+            blog.CreatedByUserId = existingBlog.CreatedByUserId;
+
+            // Handle ImagePath logic
+            if (ImagePath != null)
+            {
+                var fileName = Path.GetFileNameWithoutExtension(ImagePath.FileName);
+                var extension = Path.GetExtension(ImagePath.FileName);
+                var newFileName = $"{fileName}_{DateTime.Now.Ticks}{extension}";
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", newFileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ImagePath.CopyToAsync(stream);
+                }
+
+                blog.ImagePath = $"/images/{newFileName}";
+            }
+            else
+            {
+                blog.ImagePath = existingBlog.ImagePath;
+            }
 
             blog.PublishedDate = DateTime.Now;
 
@@ -154,7 +173,7 @@ namespace ChitTalk.Controllers
             {
                 try
                 {
-                    _context.Update(blog);
+                    _context.Entry(blog).State = EntityState.Modified;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -172,6 +191,7 @@ namespace ChitTalk.Controllers
             }
             return View(blog);
         }
+
 
 
         // GET: Blog/Delete/5
