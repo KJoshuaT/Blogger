@@ -32,7 +32,7 @@ ChitTalk is a full-stack blogging application that allows users to create, manag
    cd ChitTalk
 
 2. Restore Dependencies:
-    dotnt restore
+    ```dotnet restore
 
 3. Run the application locally:
     dotnet run
@@ -58,7 +58,7 @@ The application will be accessible at http://localhost:5090.
 3. Start creating and sharing blog posts!
 
 ## Contributing
-    Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request.
+Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request.
 
 ## Acknowledgements
 
