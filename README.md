@@ -32,7 +32,7 @@ ChitTalk is a full-stack blogging application that allows users to create, manag
    cd ChitTalk
 
 2. Restore Dependencies:
-    ```dotnet restore
+    dotnet restore
 
 3. Run the application locally:
     dotnet run
