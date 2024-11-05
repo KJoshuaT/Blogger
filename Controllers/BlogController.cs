@@ -248,6 +248,24 @@ namespace ChitTalk.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Searching method
+        public async Task<IActionResult> Search(string searchString)
+        {
+            // Get all blog posts
+            var blogs = from b in _context.Blog
+                        select b;
+
+            // If search string is not empty
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                // Filter blog posts by title
+                blogs = blogs.Where(s => s.Title.Contains(searchString));
+            }
+
+            // Return the filtered blog posts
+            return View("Index", await blogs.ToListAsync());
+        }
+
 
         private bool BlogExists(int id)
         {

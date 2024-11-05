@@ -8,6 +8,13 @@
     <a asp-action="Create" class="mt-3 mb-4"><i class="fa-solid fa-circle-plus fa-2xl hover-beat"></i></a>
 </div>
 
+<!-- Please beautify later -->
+<form asp-action="Search">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="searchString" placeholder="Search for a blog post" aria-label="Search for a blog post" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+    </div>
+</form>
 
 <div class="container">
     <div class="row">
@@ -30,7 +37,7 @@
             }
         }
         else {
-            <p style="text-align: center; padding: 350px; color: dimgray;">No posts just yet, make your own with the <i class="fa-solid fa-circle-plus"></i> button above!</p>
+            <p style="text-align: center; padding: 350px; color: dimgray;">No posts found! Use the <i class="fa-solid fa-circle-plus"></i> button above to create one!</p>
         }
 
     </div>
